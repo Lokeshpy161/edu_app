@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.js
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './pages/home';
+import LoginScreen from './pages/login';
+import FOEScreen from './pages/FOEScreen';
+import AboutScreen from './pages/About';
+import DepartmentScreen from './pages/Departments';
+import YearScreen from './pages/Year';
+import SubjectScreen from './pages/Subjects';
+import TopicScreen from './pages/Topics';
+import DashboardScreen from './pages/Dashboard';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="FOE" component={FOEScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Department" component={DepartmentScreen} />
+        <Stack.Screen name="Year" component={YearScreen} />
+        <Stack.Screen name="Subject" component={SubjectScreen} />
+        <Stack.Screen name="Topic" component={TopicScreen} />
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+initialRouteName="Home"
